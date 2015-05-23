@@ -1,0 +1,16 @@
+//Sample code from 
+//https://groups.google.com/forum/#!searchin/theano-users/rnnlm/theano-users/7ieosNfL_AI/6XjiG94PhjkJ
+
+Usage:
+1. Train on random generated training data
+     > THEANO_FLAGS=mode=FAST_RUN,device=cpu,floatX=float32 python rnn.py
+     > THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32 python rnn_gpu.py
+     (there is no significant different between cpu & gpu version)
+
+Note:
+ You have better read the document about "theano.scan()"
+ changing "truncate_gradient" can modify BPTT unfold step.
+
+ToDo: 
+ 1 to N gram input (or directly combine with the other code)
+  

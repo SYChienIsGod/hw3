@@ -1,0 +1,19 @@
+//Sample code from 
+//https://github.com/shuyo/iir/blob/master/ngram/rnnlm.py
+
+Usage:
+1. Prepare training data (don't need the pretrain bash, here use re.sub instead)
+     > cat ./Holmes_Training_Data/*.TXT > training.txt
+2. Create dictionary & training 
+     > python rnnlm.py -f training.txt
+
+Note:
+ You have better install blas with numpy (ex. Openblas).
+ Although it can only train on CPU, with blas (multi-thread) support the  
+ training can be faster.
+ The environment is setted on Media 3,9,10 with 16~24 CPU cores support.  
+
+ToDo: 
+ Do testing
+ ReWrite the code
+  
