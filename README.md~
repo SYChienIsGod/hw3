@@ -1,0 +1,52 @@
+# Homework 3
+## Assumed file layout
+`hw3`
+Python scripts.
+`hw3/data`
+Training/testing data.
+`hw3/data/Holmes_Training_Data`
+The original Project Gutenberg data.
+`hw3/rnnc`
+The C++ implementation.
+## Preprocessing
+First, the data is preprocessed with a python script that extracts the relevant information (i.e. deletes the Project Gutenberg headers) and puts it all into one file:
+`python filter_training_data.py`
+Afterwards, the shell script (slightly modified from the suggestion in the facebook group) is used:
+`./pre.sh < training_sents.txt > training_clean.txt`
+
+
+
+``time ./rnnlm -rnnlm model_test18 -train ../../NTU/MLDS/hw3/data/training_clean_1e5.txt -valid ../../NTU/MLDS/hw3/data/training_clean_1e5.txt -bptt 5 -hidden 104 -class 104 -direct-order 0 
+train file: ../../NTU/MLDS/hw3/data/training_clean_1e5.txt
+valid file: ../../NTU/MLDS/hw3/data/training_clean_1e5.txt
+class size: 104
+Hidden layer size: 104
+Order of direct connections: 0
+BPTT: 5
+rnnlm file: model_test18
+Starting training using file ../../NTU/MLDS/hw3/data/training_clean_1e5.txt
+Vocab size: 33547
+Words in train file: 1534793
+Iter:   0	Alpha: 0.100000	   TRAIN entropy: 8.1011    Words/sec: 26413.5   VALID entropy: 8.3333
+Iter:   1	Alpha: 0.100000	   TRAIN entropy: 7.7350    Words/sec: 27589.8   VALID entropy: 8.1331
+Iter:   2	Alpha: 0.100000	   TRAIN entropy: 7.5717    Words/sec: 27539.6   VALID entropy: 8.0379
+Iter:   3	Alpha: 0.100000	   TRAIN entropy: 7.4564    Words/sec: 26375.0   VALID entropy: 7.9650
+Iter:   4	Alpha: 0.100000	   TRAIN entropy: 7.3642    Words/sec: 26558.2   VALID entropy: 7.9109
+Iter:   5	Alpha: 0.100000	   TRAIN entropy: 7.2874    Words/sec: 26347.9   VALID entropy: 7.8752
+Iter:   6	Alpha: 0.100000	   TRAIN entropy: 7.2215    Words/sec: 26703.4   VALID entropy: 7.8393
+Iter:   7	Alpha: 0.100000	   TRAIN entropy: 7.1640    Words/sec: 26389.9   VALID entropy: 7.8049
+Iter:   8	Alpha: 0.100000	   TRAIN entropy: 7.1116    Words/sec: 26524.6   VALID entropy: 7.7926
+Iter:   9	Alpha: 0.050000	   TRAIN entropy: 7.0038    Words/sec: 26363.0   VALID entropy: 7.6004
+Iter:  10	Alpha: 0.025000	   TRAIN entropy: 6.9470    Words/sec: 26364.1   VALID entropy: 7.4603
+Iter:  11	Alpha: 0.012500	   TRAIN entropy: 6.9277    Words/sec: 26504.5   VALID entropy: 7.3659
+Iter:  12	Alpha: 0.006250	   TRAIN entropy: 6.9306    Words/sec: 26773.1   VALID entropy: 7.2974
+Iter:  13	Alpha: 0.003125	   TRAIN entropy: 6.9447    Words/sec: 26174.5   VALID entropy: 7.2571
+Iter:  14	Alpha: 0.001563	   TRAIN entropy: 6.9633    Words/sec: 26427.5   VALID entropy: 7.2237
+Iter:  15	Alpha: 0.000781	   TRAIN entropy: 6.9830    Words/sec: 26818.9   VALID entropy: 7.1805
+Iter:  16	Alpha: 0.000391	   TRAIN entropy: 7.0022    Words/sec: 26623.6   VALID entropy: 7.1375
+Iter:  17	Alpha: 0.000195	   TRAIN entropy: 7.0193    Words/sec: 26634.0   VALID entropy: 7.1061
+Iter:  18	Alpha: 0.000098	   TRAIN entropy: 7.0328    Words/sec: 26480.3   VALID entropy: 7.0868
+
+real	23m36.148s
+user	23m33.724s
+sys	0m1.500s``
