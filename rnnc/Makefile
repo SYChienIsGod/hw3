@@ -24,8 +24,8 @@ OBJECTFILES= mp.o
 CFLAGS=
 
 # CC Compiler Flags
-CCFLAGS=-m64 -lblas -lcblas -funroll-loops -ffast-math
-CXXFLAGS=-m64 -lblas -lcblas -funroll-loops -ffast-math
+CCFLAGS=-m64 -funroll-loops -ffast-math
+CXXFLAGS=-m64 -funroll-loops -ffast-math
 
 # Link Libraries and Options
 LDLIBSOPTIONS=
@@ -33,11 +33,11 @@ LDLIBSOPTIONS=
 build:
 # Build Targets
 	$(COMPILE.cc) -O3 -std=c++11 -MMD -MP -MF "$@.d" -o mp.o mp.cc
-	${LINK.cc} -o ${OBJECTFILES} ${LDLIBSOPTIONS} -lblas -lcblas
+	${LINK.cc} -o mp ${OBJECTFILES} ${LDLIBSOPTIONS} -lblas -L/usr/lib64/atlas -lcblas
 
 
 # Clean Targets
 clean: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
 	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/rnnc
-
+	
