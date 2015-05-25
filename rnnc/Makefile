@@ -33,7 +33,7 @@ LDLIBSOPTIONS=
 build:
 # Build Targets
 	$(COMPILE.cc) -O3 -std=c++11 -MMD -MP -MF "$@.d" -o mp.o mp.cc
-	${LINK.cc} -o mp ${OBJECTFILES} ${LDLIBSOPTIONS} -lblas -L/usr/lib64/atlas -lcblas
+	${LINK.cc} -o mp ${OBJECTFILES} ${LDLIBSOPTIONS} -lblas -lcblas
 
 
 # Clean Targets
