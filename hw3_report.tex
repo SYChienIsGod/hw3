@@ -1,0 +1,51 @@
+
+\documentclass[]{article}
+
+\usepackage[top=1.25in, bottom=1.25in, left=1.25in, right=1.25in]{geometry}
+\usepackage{CJK}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{graphicx}
+%opening
+\title{Machine Learning and having it Deep and Structured Homework III Report}
+\author{Group "SYChienIsGod"}
+
+\begin{document}
+
+\maketitle
+
+
+\section{The Group}
+\subsection{Members}
+The members of the group "SYChienIsGod" are
+\begin{CJK}{UTF8}{bsmi}
+\begin{enumerate}
+	\item , 洪培恒 r02943122
+	\item , 曾泓諭 r03943005
+	\item , 柯揚   d03921019
+	\item , 李啟為 r03922054
+\end{enumerate}
+\end{CJK}
+\section{The Algorithm}
+
+\subsection{Data processing}
+We first extract sentences from training data-set with python script, which deletes the header information in every file and puts the remaining all in one file. The second step is to take punctuation out of the sentences which make the file able to be trained.
+
+\subsection{Training}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ |l|l|l|l|l|l| }
+\hline
+Num. state & Num. class & Overlap & initial LR & LR decay & Num. Epoch\\ \hline
+104 & 104 & 0 & 0.1 & 0.867 & 15\\ \hline
+\end{tabular}
+\caption{Parameter setting for training RNN.}
+\label{tb:par_for_train}
+\end{center}
+\end{table}
+
+\section{The Experiments}
+
+\end{document}
