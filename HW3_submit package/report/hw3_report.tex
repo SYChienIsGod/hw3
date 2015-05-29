@@ -1,0 +1,67 @@
+
+\documentclass[]{article}
+
+\usepackage[top=1.25in, bottom=1.25in, left=1.25in, right=1.25in]{geometry}
+\usepackage{CJK}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{graphicx}
+%opening
+\title{Machine Learning and having it Deep and Structured Homework III Report}
+\author{Group "SYChienIsGod"}
+
+\begin{document}
+
+\maketitle
+
+
+\section{The Group}
+\subsection{Members}
+The members of the group "SYChienIsGod" are
+\begin{CJK}{UTF8}{bsmi}
+\begin{enumerate}
+	\item , 洪培恒 r02943122
+	\item , 曾泓諭 r03943005
+	\item , 柯揚   d03921019
+	\item , 李啟為 r03922054
+\end{enumerate}
+\end{CJK}
+\section{The Algorithm}
+
+\subsection{Data processing}
+We first extract sentences from training data-set with python script, which deletes the header information in every file and puts the remaining all in one file. The second step is to take punctuation out of the sentences which make the file able to be trained.
+
+\subsection{Training}
+
+\subsection{Testing}
+After training, we pack each sentence in testing data into fixed-wordcount sentence by padding zero at the end of sentence. With that, we can find the best answer by comparing the loss (cost) of each sentence.
+
+Note that because of the characteristics of RNN (exploding gradients) the training & testing process will terminate earilly (as shown in Table1). The exploding gradients should be handled in the future.
+
+The training and testing time for 1000k sentences dataset, 64 state, 32 class took about 45 minutes for each epoch on 12 cores CPU with Blas acclerate.
+\begin{table}
+\begin{center}
+\begin{tabular}{ |l|l|l|l|l|l| }
+\hline
+Train sentences & state\# & class\# & initial LR & Epoch & Score\\ \hline
+1000k & 64 & 32 & 0.1 & 1 & 0.2817\\ \hline
+1000k & 64 & 32 & 0.1 & 5 & 0.3278\\ \hline
+1000k & 64 & 32 & 0.1 & 6 & 0.3317\\ \hline
+1000k & 64 & 32 & 0.1 & 7 & 0.3278\\ \hline
+1000k & 64 & 32 & 0.1 & 8 & 0.3451\\ \hline
+1000k & 64 & 32 & 0.1 & 9 & 0.3730\\ \hline
+1000k & 64 & 32 & 0.1 & 10 & X(terminate)\\ \hline
+1000k & 24 & 104 & 0.1 & 4 & 0.2788\\ \hline
+500k & 64 & 64 & 0.1 & 4 & 0.2875\\ \hline
+100k & 104 & 104 & 0.1 & 9 & 0.2750\\ \hline
+
+\end{tabular}
+\caption{Parameter setting for training RNN.}
+\label{tb:par_for_train}
+\end{center}
+\end{table}
+
+\section{The Experiments}
+
+\end{document}

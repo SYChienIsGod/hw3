@@ -1,0 +1,6 @@
+1. Put clean training dataset in ./data/xxx
+2. Modify the data path of training path in mp.cc (line 977)
+3. make (make sure you have install c++11 and blas)
+4. execute ./mp
+5. After each epoch, there will generate a predict result : "predict_result_raw_x.txt"
+6. Use "testing_result.m" to produce final submit result
